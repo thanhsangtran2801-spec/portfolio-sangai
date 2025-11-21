@@ -1,10 +1,3 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio – Trần Thanh Sang · SANGAI Academy</title>
-  <style>
     :root {
       --primary: #0b4f6c;
       --primary-dark: #053448;
@@ -12,7 +5,10 @@
       --bg: #03141f;
       --text: #f5f7fa;
       --muted: #b0c4d4;
+      --border-subtle: rgba(255,255,255,0.16);
+      --accent-soft: #facc15;
     }
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -157,6 +153,32 @@
     .hero-meta span strong {
       color: #e8f4ff;
     }
+    .hero-social {
+      margin-top: 0.9rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .hero-social .label {
+      margin-right: 0.25rem;
+    }
+    .social-link {
+      padding: 0.25rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid var(--border-subtle);
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-decoration: none;
+      transition: all 0.18s ease-out;
+    }
+    .social-link:hover {
+      border-color: var(--accent-soft);
+      color: var(--accent-soft);
+      background: rgba(250, 204, 21, 0.06);
+    }
     .hero-aside {
       display: flex;
       flex-direction: column;
@@ -284,7 +306,107 @@
       font-size: 0.8rem;
       color: var(--muted);
     }
-    @media (max-width: 768px) {
+    
+    .hero-social {
+      margin-top: 0.9rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .hero-social .label {
+      margin-right: 0.25rem;
+    }
+    .social-link {
+      padding: 0.25rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid var(--border-subtle);
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-decoration: none;
+      transition: all 0.18s ease-out;
+    }
+    .social-link:hover {
+      border-color: var(--accent-soft);
+      color: var(--accent-soft);
+      background: rgba(250, 204, 21, 0.06);
+    }
+    .hero-contact {
+      margin-top: 0.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .hero-contact .label {
+      margin-right: 0.25rem;
+    }
+    .contact-link {
+      color: var(--accent-soft);
+      font-weight: 500;
+      text-decoration: none;
+    }
+    .contact-link:hover {
+      text-decoration: underline;
+    }
+    .gallery-section {
+      margin-bottom: 2rem;
+      padding: 1.7rem;
+      border-radius: 18px;
+      background: radial-gradient(circle at top left, rgba(19,67,96,0.25), rgba(4,15,27,0.96));
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .gallery-section h2 {
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+    .gallery-section h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.4rem;
+    }
+    .gallery-section p.section-intro {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+    }
+    .gallery-card {
+      border-radius: 1.1rem;
+      overflow: hidden;
+      background: rgba(3,15,27,0.96);
+      border: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      flex-direction: column;
+    }
+    .gallery-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+    .gallery-card-body {
+      padding: 0.85rem 1rem 1rem;
+    }
+    .gallery-card-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+    .gallery-card-text {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+@media (max-width: 768px) {
       .page {
         padding: 1.25rem 1rem 2.75rem;
       }
@@ -342,11 +464,24 @@
           <a href="#contact" class="btn btn-primary">Kết nối &amp; hợp tác</a>
           <a href="#ecosystem" class="btn btn-ghost">Khám phá hệ sinh thái SANGAI</a>
         </div>
+        
         <div class="hero-meta">
           <span><strong>26+ năm</strong> marketing &amp; thương hiệu thực chiến</span>
           <span><strong>AI cho mọi người</strong>: SME, giáo viên, công chức, nông dân</span>
           <span><strong>Ứng dụng chính</strong>: Custom GPT · Video AI · Automation</span>
         </div>
+        <div class="hero-contact">
+          <span class="label">Hotline:</span>
+          <a href="tel:0913091394" class="contact-link">0913.0913.94 (Mr. Sang)</a>
+        </div>
+        <div class="hero-social">
+          <span class="label">Kết nối nhanh:</span>
+          <a href="#" class="social-link">Zalo</a>
+          <a href="#" class="social-link">Facebook</a>
+          <a href="#" class="social-link">YouTube SANGAI</a>
+          <a href="#" class="social-link">LinkedIn</a>
+        </div>
+
       </div>
       <div class="hero-aside">
         <div class="avatar-wrap">
@@ -472,7 +607,78 @@
       </div>
     </section>
 
-    <section id="contact" class="cta-final">
+    
+    <section id="gallery-activities" class="gallery-section">
+      <h2>Hình ảnh hoạt động</h2>
+      <h3>Đào tạo · Coaching · Chia sẻ cộng đồng</h3>
+      <p class="section-intro">
+        Một vài khoảnh khắc trong hành trình SANGAI đồng hành cùng doanh nhân, giáo viên, công chức và cộng đồng
+        qua các buổi đào tạo, workshop và coaching về AI, marketing và chuyển đổi số.
+      </p>
+      <div class="gallery-grid">
+        <div class="gallery-card">
+          <img src="training-01.jpg" alt="Đào tạo AI cho doanh nghiệp">
+          <div class="gallery-card-body">
+            <div class="gallery-card-title">Workshop AI cho doanh nghiệp SME</div>
+            <div class="gallery-card-text">Buổi đào tạo thực chiến giúp đội ngũ dùng AI để viết nội dung và lập kế hoạch bán hàng.</div>
+          </div>
+        </div>
+        <div class="gallery-card">
+          <img src="training-02.jpg" alt="Chia sẻ tại đơn vị nhà nước">
+          <div class="gallery-card-body">
+            <div class="gallery-card-title">Chia sẻ AI cho công chức &amp; giáo viên</div>
+            <div class="gallery-card-text">Giúp tối ưu công việc hành chính, soạn giáo án, báo cáo bằng AI.</div>
+          </div>
+        </div>
+        <div class="gallery-card">
+          <img src="training-03.jpg" alt="Coaching 1-1 cùng SANGAI">
+          <div class="gallery-card-body">
+            <div class="gallery-card-title">Coaching 1-1 &amp; nhóm nhỏ</div>
+            <div class="gallery-card-text">Cùng thiết kế hệ thống GPT và quy trình ứng dụng AI riêng cho từng mô hình kinh doanh.</div>
+          </div>
+        </div>
+      </div>
+      <p class="small" style="margin-top:1rem;">
+        👉 Bạn chỉ cần thay các file <strong>training-01.jpg, training-02.jpg, training-03.jpg</strong> bằng hình ảnh thật của mình để cập nhật.
+      </p>
+    </section>
+
+    <section id="gallery-products" class="gallery-section">
+      <h2>Sản phẩm &amp; Ấn phẩm SANGAI</h2>
+      <h3>Custom GPT · Khóa học · Tài liệu chuyên sâu</h3>
+      <p class="section-intro">
+        Một phần các sản phẩm trí tuệ từ hệ sinh thái SANGAI – nơi AI được đóng gói thành công cụ, khóa học và ấn phẩm
+        phục vụ cộng đồng.
+      </p>
+      <div class="gallery-grid">
+        <div class="gallery-card">
+          <img src="product-01.jpg" alt="Custom GPT SANGAI">
+          <div class="gallery-card-body">
+            <div class="gallery-card-title">Bộ Custom GPT theo ngành</div>
+            <div class="gallery-card-text">Trợ lý AI cá nhân hóa cho marketing, giáo dục, công chức, nông nghiệp...</div>
+          </div>
+        </div>
+        <div class="gallery-card">
+          <img src="product-02.jpg" alt="Khóa học SANGAI Academy">
+          <div class="gallery-card-body">
+            <div class="gallery-card-title">Khóa học AI thực chiến</div>
+            <div class="gallery-card-text">Lộ trình giúp người mới dùng GPT &amp; Video AI để nâng cấp công việc mỗi ngày.</div>
+          </div>
+        </div>
+        <div class="gallery-card">
+          <img src="product-03.jpg" alt="Ấn phẩm SANGAI Academy">
+          <div class="gallery-card-body">
+            <div class="gallery-card-title">Sách &amp; ấn phẩm chuyên sâu</div>
+            <div class="gallery-card-text">Tài liệu về AI, marketing, chiến lược và quy trình ứng dụng dành cho người Việt.</div>
+          </div>
+        </div>
+      </div>
+      <p class="small" style="margin-top:1rem;">
+        👉 Thay các file <strong>product-01.jpg, product-02.jpg, product-03.jpg</strong> bằng ảnh bìa sách, landing page, khóa học thật của SANGAI.
+      </p>
+    </section>
+
+<section id="contact" class="cta-final">
       <h2>Kết nối &amp; Hợp tác</h2>
       <p>
         Nếu bạn là doanh nhân nhỏ, giáo viên, công chức hay người đang tìm cách ứng dụng AI vào công việc mỗi ngày,
