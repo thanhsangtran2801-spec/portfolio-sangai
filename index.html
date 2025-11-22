@@ -1,518 +1,827 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
   <title>Portfolio – Trần Thanh Sang · SANGAI Academy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
   <style>
     :root {
-      --primary: #0b4f6c;
-      --primary-dark: #053448;
-      --accent: #ffb400;
-      --bg: #03141f;
-      --text: #f5f7fa;
-      --muted: #b0c4d4;
+      --bg: #020b17;
+      --card: #041426;
+      --card-soft: #061b30;
+      --accent: #0ea5e9;
+      --accent-soft: rgba(14, 165, 233, 0.2);
+      --accent-gold: #facc15;
+      --text: #e5f2ff;
+      --muted: #9ca3af;
+      --border: #0b253f;
+      --danger: #f97373;
+      --radius-lg: 1.25rem;
+      --radius-xl: 2.5rem;
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.7);
     }
+
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
+
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      line-height: 1.6;
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #082f49 0, #020617 45%, #000 100%);
       color: var(--text);
-      background: radial-gradient(circle at top, #123b52 0, #020711 55%, #000000 100%);
       min-height: 100vh;
+      line-height: 1.6;
     }
+
     a {
       color: inherit;
       text-decoration: none;
     }
-    .page {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 1.5rem 1.25rem 3rem;
+
+    img {
+      max-width: 100%;
+      display: block;
     }
+
+    .page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 4rem;
+    }
+
     header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 1.5rem;
+      gap: 1.5rem;
+      padding: 0.5rem 0 1.5rem;
     }
+
     .brand {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 0.85rem;
     }
+
     .brand-logo {
       width: 52px;
       height: 52px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid rgba(255,255,255,0.3);
-      background: #012131;
-    }
-    .brand-text h1 {
-      font-size: 1.1rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-    .brand-text p {
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-    nav {
-      display: flex;
-      gap: 1rem;
-      font-size: 0.85rem;
-      color: var(--muted);
-    }
-    nav a:hover {
-      color: var(--accent);
-    }
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-      gap: 1.75rem;
-      padding: 1.75rem;
       border-radius: 18px;
-      background: linear-gradient(135deg, rgba(6,34,52,0.96), rgba(5,22,37,0.98));
-      box-shadow: 0 22px 60px rgba(0,0,0,0.6);
-      margin-bottom: 2rem;
-      border: 1px solid rgba(255,255,255,0.05);
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.85);
+      background: radial-gradient(circle at 0 0, #22c55e, #0ea5e9 45%, #f97316 100%);
     }
-    .hero-main h2 {
-      font-size: 1rem;
+
+    .brand-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .brand-text h1 {
+      font-size: 1.15rem;
+      letter-spacing: 0.07em;
       text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--accent);
-      margin-bottom: 0.4rem;
     }
-    .hero-main h3 {
-      font-size: 1.9rem;
-      margin-bottom: 0.5rem;
-    }
-    .hero-main h4 {
-      font-size: 1.05rem;
-      font-weight: 500;
-      color: var(--muted);
-      margin-bottom: 0.75rem;
-    }
-    .tagline {
-      font-style: italic;
-      font-size: 0.98rem;
-      color: #e3edf7;
-      margin-bottom: 1rem;
-    }
-    .hero-main p.description {
-      font-size: 0.95rem;
-      color: var(--muted);
-      margin-bottom: 1.3rem;
-    }
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-    }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.6rem 1.1rem;
-      border-radius: 999px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      border: 1px solid transparent;
-      cursor: pointer;
-      transition: all 0.18s ease-out;
-    }
-    .btn-primary {
-      background: var(--accent);
-      color: #111;
-      border-color: var(--accent);
-    }
-    .btn-primary:hover {
-      filter: brightness(1.05);
-      transform: translateY(-1px);
-    }
-    .btn-ghost {
-      background: transparent;
-      border-color: rgba(255,255,255,0.2);
-      color: var(--muted);
-    }
-    .btn-ghost:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      transform: translateY(-1px);
-    }
-    .hero-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.25rem;
-      margin-top: 1.25rem;
+
+    .brand-text span {
       font-size: 0.78rem;
       color: var(--muted);
     }
-    .hero-meta span strong {
-      color: #e8f4ff;
-    }
-    .hero-social {
-      margin-top: 0.9rem;
+
+    nav {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem;
-      align-items: center;
-      font-size: 0.8rem;
-      color: var(--muted);
+      gap: 0.6rem;
+      font-size: 0.85rem;
     }
-    .hero-social .label {
-      margin-right: 0.25rem;
-    }
-    .social-link {
-      padding: 0.25rem 0.8rem;
+
+    nav a {
+      padding: 0.25rem 0.75rem;
       border-radius: 999px;
-      border: 1px solid var(--border-subtle);
-      font-size: 0.8rem;
+      border: 1px solid transparent;
       color: var(--muted);
-      text-decoration: none;
       transition: all 0.18s ease-out;
     }
-    .social-link:hover {
-      border-color: var(--accent-soft);
-      color: var(--accent-soft);
-      background: rgba(250, 204, 21, 0.06);
+
+    nav a:hover {
+      border-color: rgba(148, 163, 184, 0.5);
+      color: var(--text);
+      background: rgba(15, 23, 42, 0.9);
     }
-    .hero-aside {
+
+    main {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      gap: 0.8rem;
+      gap: 1.75rem;
     }
-    .avatar-wrap {
-      width: 200px;
-      height: 200px;
-      border-radius: 32px;
-      background: radial-gradient(circle at 10% 10%, #1c7fb3, #020611);
-      padding: 4px;
-      box-shadow: 0 16px 40px rgba(0,0,0,0.7);
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.2fr);
+      gap: 1.75rem;
+      padding: 1.75rem;
+      border-radius: var(--radius-xl);
+      background: radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.2), transparent 55%),
+                  radial-gradient(circle at 100% 0, rgba(251, 191, 36, 0.15), transparent 52%),
+                  #020617;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      overflow: hidden;
     }
-    .avatar-img {
-      width: 100%;
-      height: 100%;
-      border-radius: 28px;
-      object-fit: cover;
-      border: 2px solid rgba(255,255,255,0.3);
-    }
-    .hero-role {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      color: var(--muted);
-    }
-    .hero-pills {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.4rem;
-      margin-top: 0.35rem;
-    }
-    .pill {
-      font-size: 0.75rem;
-      padding: 0.28rem 0.7rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.18);
-      color: var(--muted);
-      background: rgba(2,14,24,0.8);
-    }
-    section {
-      margin-bottom: 2rem;
-      padding: 1.5rem;
-      border-radius: 14px;
-      background: radial-gradient(circle at top left, rgba(19,67,96,0.2), rgba(4,15,27,0.96));
-      border: 1px solid rgba(255,255,255,0.04);
-    }
-    section h2 {
-      font-size: 1.1rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--muted);
-      margin-bottom: 0.8rem;
-    }
-    section h3 {
-      font-size: 1.25rem;
+
+    .hero-main h2 {
+      font-size: 2rem;
       margin-bottom: 0.4rem;
     }
-    section p {
-      font-size: 0.94rem;
+
+    .badge {
+      display: inline-block;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.55);
       color: var(--muted);
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.9rem;
+      background: radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.15), transparent 60%);
     }
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1.25rem;
+
+    .hero-subtitle {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
     }
-    ul {
-      list-style: none;
-      margin-top: 0.3rem;
+
+    blockquote {
+      margin: 0.9rem 0 1.25rem;
+      padding-left: 1rem;
+      border-left: 3px solid var(--accent-gold);
+      font-style: italic;
+      color: #e5e7eb;
     }
-    li + li {
-      margin-top: 0.35rem;
-    }
-    li strong {
-      color: #e9f2ff;
-    }
+
     .pill-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-top: 0.5rem;
+      gap: 0.55rem;
+      margin: 1.1rem 0 1.4rem;
     }
-    .pill-soft {
-      font-size: 0.8rem;
-      padding: 0.3rem 0.7rem;
+
+    .pill {
+      font-size: 0.78rem;
+      padding: 0.15rem 0.65rem;
       border-radius: 999px;
-      background: rgba(10,44,72,0.9);
-      border: 1px solid rgba(255,255,255,0.08);
+      border: 1px solid rgba(148, 163, 184, 0.5);
       color: var(--muted);
+      background: rgba(15, 23, 42, 0.9);
     }
-    blockquote {
-      margin-top: 0.75rem;
-      padding: 0.8rem 1rem;
-      border-left: 3px solid var(--accent);
-      background: rgba(1,13,24,0.85);
-      border-radius: 10px;
-      font-size: 0.9rem;
-      color: #e0ecff;
-    }
-    blockquote footer {
-      margin-top: 0.35rem;
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-    .cta-final {
-      text-align: center;
-      padding: 1.8rem 1.2rem 0.6rem;
-    }
-    .cta-final p {
-      max-width: 560px;
-      margin: 0 auto 1.1rem;
-    }
-    .cta-buttons {
+
+    .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.8rem;
-      margin-bottom: 0.7rem;
+      gap: 0.7rem;
+      align-items: center;
+      margin-bottom: 0.9rem;
     }
-    .small {
-      font-size: 0.8rem;
+
+    .btn-primary {
+      background: linear-gradient(135deg, #0ea5e9, #22c55e);
+      color: #0b1020;
+      padding: 0.6rem 1.5rem;
+      border-radius: 999px;
+      border: none;
+      font-weight: 600;
+      font-size: 0.92rem;
+      cursor: pointer;
+      box-shadow: 0 14px 30px rgba(34, 197, 94, 0.45);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: transform 0.15s ease-out, box-shadow 0.15s ease-out;
+      text-decoration: none;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(34, 197, 94, 0.6);
+    }
+
+    .btn-outline {
+      padding: 0.55rem 1.25rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text);
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      text-decoration: none;
+      transition: background 0.18s ease-out, border-color 0.18s ease-out, transform 0.15s ease-out;
+    }
+
+    .btn-outline:hover {
+      background: rgba(15, 23, 42, 0.95);
+      border-color: rgba(148, 163, 184, 0.9);
+      transform: translateY(-1px);
+    }
+
+    .social-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .social-pill {
+      padding: 0.4rem 0.95rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.9);
+      font-size: 0.82rem;
+      color: var(--muted);
+      transition: all 0.18s ease-out;
+    }
+
+    .social-pill:hover {
+      background: rgba(15, 23, 42, 0.98);
+      color: var(--text);
+      border-color: var(--accent);
+    }
+
+    .hotline {
+      font-size: 0.88rem;
+      color: var(--accent-gold);
+      margin-top: 0.2rem;
+    }
+
+    .hotline a {
+      color: var(--accent-gold);
+      font-weight: 600;
+    }
+
+    .hero-meta {
+      font-size: 0.76rem;
+      color: var(--muted);
+      margin-top: 0.8rem;
+    }
+
+    .hero-meta strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .hero-avatar {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-avatar-inner {
+      width: 100%;
+      max-width: 420px;
+      aspect-ratio: 4 / 5;
+      border-radius: 1.75rem;
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      box-shadow: var(--shadow-soft);
+      background: radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.15), transparent 60%);
+    }
+
+    .hero-avatar-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-avatar-tag {
+      position: absolute;
+      bottom: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(15, 23, 42, 0.9);
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      padding: 0.35rem 0.9rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+      backdrop-filter: blur(14px);
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .hero-avatar-tag span {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.4);
+    }
+
+    section {
+      margin-top: 1.5rem;
+    }
+
+    .section-card {
+      background: radial-gradient(circle at 0 0, rgba(15, 23, 42, 0.9), rgba(2, 6, 23, 0.95));
+      border-radius: var(--radius-lg);
+      padding: 1.4rem 1.5rem;
+      border: 1px solid rgba(15, 23, 42, 0.95);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
+    }
+
+    .section-card h3 {
+      font-size: 1.1rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 0.9rem;
+    }
+
+    .section-card h4 {
+      font-size: 1rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .two-cols {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 1.5rem;
+    }
+
+    ul {
+      list-style: disc;
+      margin-left: 1.1rem;
+      margin-top: 0.4rem;
       color: var(--muted);
     }
-    @media (max-width: 768px) {
-      .page {
-        padding: 1.25rem 1rem 2.75rem;
-      }
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.75rem;
-      }
-      nav {
-        flex-wrap: wrap;
-      }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin-top: 1rem;
+    }
+
+    .tag {
+      font-size: 0.76rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      color: var(--muted);
+    }
+
+    .quote-card {
+      margin-top: 1rem;
+      padding: 0.9rem 1rem;
+      border-radius: 1rem;
+      background: radial-gradient(circle at 0 0, rgba(8, 47, 73, 0.7), rgba(8, 47, 73, 0.3));
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      font-size: 0.9rem;
+      color: #e5e7eb;
+    }
+
+    .quote-card span {
+      display: block;
+      margin-top: 0.4rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .columns {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 1.1rem;
+    }
+
+    .card-light {
+      background: radial-gradient(circle at 0 0, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.85));
+      border-radius: 1.1rem;
+      padding: 1rem 1.1rem;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      font-size: 0.92rem;
+    }
+
+    .card-light h4 {
+      font-size: 1rem;
+      margin-bottom: 0.35rem;
+    }
+
+    /* Masonry galleries */
+    .gallery-section h3 {
+      margin-bottom: 0.2rem;
+    }
+
+    .gallery-section p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 0.8rem;
+    }
+
+    .masonry {
+      column-count: 3;
+      column-gap: 1rem;
+    }
+
+    .masonry-item {
+      break-inside: avoid;
+      margin-bottom: 1rem;
+      border-radius: 1rem;
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      background: #020617;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.7);
+    }
+
+    .masonry-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .masonry-caption {
+      font-size: 0.82rem;
+      padding: 0.4rem 0.65rem 0.5rem;
+      color: var(--muted);
+    }
+
+    /* Contact */
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.92rem;
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    footer {
+      margin-top: 2rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @media (max-width: 960px) {
       .hero {
         grid-template-columns: minmax(0, 1fr);
       }
-      .hero-aside {
-        order: -1;
+      .hero-avatar-inner {
+        max-width: 360px;
       }
-      .grid-2 {
+      .two-cols,
+      .columns {
         grid-template-columns: minmax(0, 1fr);
+      }
+      .masonry {
+        column-count: 2;
+      }
+    }
+
+    @media (max-width: 640px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .page {
+        padding-inline: 1rem;
+      }
+      .hero {
+        padding: 1.25rem;
+      }
+      .hero-main h2 {
+        font-size: 1.7rem;
+      }
+      nav {
+        justify-content: flex-start;
+      }
+      .masonry {
+        column-count: 1;
       }
     }
   </style>
 </head>
 <body>
   <div class="page">
+    <!-- HEADER -->
     <header>
       <div class="brand">
-        <img src="logo-sangai.png" alt="SANGAI Academy Logo" class="brand-logo">
+        <div class="brand-logo">
+          <!-- Logo file: logo-sangai.png -->
+          <img src="logo-sangai.png" alt="SANGAI Academy Logo" />
+        </div>
         <div class="brand-text">
           <h1>SANGAI ACADEMY</h1>
-          <p>Trí Tuệ AI Việt Nam · Hệ Sinh Thái AI cho mọi người</p>
+          <span>Trí Tuệ AI Việt Nam · Hệ Sinh Thái AI cho mọi người</span>
         </div>
       </div>
+
       <nav>
         <a href="#about">Giới thiệu</a>
         <a href="#skills">Năng lực</a>
         <a href="#ecosystem">Hệ sinh thái</a>
-        <a href="#speaking">Diễn giả &amp; truyền thông</a>
-        <a href="#contact">Kết nối</a>
+        <a href="#speaking">Diễn giả</a>
+        <a href="#gallery-activities">Hình ảnh</a>
+        <a href="#gallery-products">Sản phẩm</a>
+        <a href="#contact">Liên hệ</a>
       </nav>
     </header>
 
-    <section class="hero" id="about">
-      <div class="hero-main">
-        <h2>Portfolio cá nhân</h2>
-        <h3>Trần Thanh Sang</h3>
-        <h4>Chuyên gia Marketing thực chiến · Kiến trúc sư hệ sinh thái SANGAI Academy – Trí Tuệ AI Việt Nam</h4>
-        <p class="tagline">“AI không thay thế trí tuệ Việt Nam – AI nâng tầm trí tuệ Việt Nam.”</p>
-        <p class="description">
-          Tôi giúp doanh nhân nhỏ, giáo viên, công chức và nông dân dùng AI để <strong>viết – bán – vận hành – ra quyết định nhanh hơn</strong>
-          thông qua hệ sinh thái SANGAI gồm <strong>Custom GPT, Video AI và Automation</strong>. Tư duy hệ thống, chuẩn học thuật nhưng cực kỳ
-          bình dân, dễ hiểu, dễ dùng.
+    <main>
+      <!-- HERO -->
+      <section id="about" class="hero">
+        <div class="hero-main">
+          <span class="badge">Portfolio cá nhân</span>
+          <h2>Trần Thanh Sang</h2>
+          <p class="hero-subtitle">
+            Chuyên gia Marketing thực chiến · Custom GPT · Video AI · Automation<br />
+            Người sáng lập – <strong>SANGAI Academy – Trí Tuệ AI Việt Nam</strong>
+          </p>
+
+          <blockquote>
+            “AI không thay thế trí tuệ Việt Nam – AI nâng tầm trí tuệ Việt Nam.”
+          </blockquote>
+
+          <p style="font-size:0.9rem;">
+            Tôi giúp doanh nhân nhỏ, giáo viên, công chức và nông dân dùng AI để
+            <strong>viết – bán – vận hành – ra quyết định nhanh hơn</strong> thông qua hệ sinh thái
+            SANGAI gồm <strong>Custom GPT, Video AI và Automation</strong>. Tư duy hệ thống,
+            chuẩn học thuật nhưng cực kỳ bình dân, dễ hiểu, dễ dùng.
+          </p>
+
+          <div class="pill-row">
+            <span class="pill">Marketing thực chiến</span>
+            <span class="pill">AI cho cộng đồng</span>
+            <span class="pill">Custom GPT &amp; Video AI</span>
+          </div>
+
+          <div class="hero-actions">
+            <!-- Khi có file PDF, đổi tên ở đây cho đúng -->
+            <a class="btn-primary" href="portfolio-sangai.pdf" download>
+              Tải hồ sơ PDF
+            </a>
+          </div>
+
+          <div class="social-row">
+            <a class="social-pill" href="#" target="_blank" rel="noopener">Zalo</a>
+            <a class="social-pill" href="#" target="_blank" rel="noopener">Facebook</a>
+            <a class="social-pill" href="#" target="_blank" rel="noopener">YouTube SANGAI</a>
+            <a class="social-pill" href="#" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+
+          <p class="hotline">
+            Hotline: <a href="tel:0913091394">0913.0913.94 (Mr. Sang)</a>
+          </p>
+
+          <p class="hero-meta">
+            <strong>26+ năm</strong> marketing & thương hiệu thực chiến ·
+            <strong>AI cho mọi người:</strong> SME, giáo viên, công chức, nông dân ·
+            <strong>Ứng dụng chính:</strong> Custom GPT · Video AI · Automation
+          </p>
+        </div>
+
+        <aside class="hero-avatar">
+          <div class="hero-avatar-inner">
+            <!-- Avatar file: avatar-tran-thanh-sang.jpg -->
+            <img src="avatar-tran-thanh-sang.jpg" alt="Trần Thanh Sang" />
+          </div>
+          <div class="hero-avatar-tag">
+            <span></span>
+            <div>Người sáng lập · SANGAI Academy</div>
+          </div>
+        </aside>
+      </section>
+
+      <!-- CORE SKILLS -->
+      <section id="skills" class="section-card">
+        <h3>Năng lực cốt lõi</h3>
+        <div class="two-cols">
+          <div>
+            <h4>Marketing &amp; Thương hiệu</h4>
+            <p style="font-size:0.9rem; color:var(--muted);">
+              Hơn 26 năm triển khai marketing thực chiến, xây dựng thương hiệu và tư vấn tăng trưởng
+              cho nhiều doanh nghiệp vừa &amp; nhỏ. Kết hợp tư duy chiến lược dài hạn với những chiến
+              thuật “xuống tay là có kết quả”.
+            </p>
+            <ul>
+              <li><strong>Chiến lược thương hiệu:</strong> Định vị, thông điệp, kiến trúc thương hiệu.</li>
+              <li><strong>Marketing SME:</strong> Tối ưu ngân sách nhỏ, tập trung hiệu quả và đo lường.</li>
+              <li><strong>Sales &amp; chăm sóc khách hàng:</strong> Hệ thống bán hàng dựa trên dữ liệu.</li>
+            </ul>
+            <div class="tag-row">
+              <span class="tag">Tư duy hệ thống</span>
+              <span class="tag">Fishbone &amp; Iceberg Thinking</span>
+            </div>
+          </div>
+
+          <div>
+            <h4>AI, Custom GPT &amp; Automation</h4>
+            <p style="font-size:0.9rem; color:var(--muted);">
+              Ứng dụng AI như một “trợ lý trí tuệ” cho người Việt: không chỉ trả lời, mà phản chiếu tư duy,
+              gợi ý quyết định, giúp làm việc sâu hơn – nhanh hơn – thông minh hơn.
+            </p>
+            <ul>
+              <li><strong>Custom GPT:</strong> Thiết kế GPT riêng cho từng ngành/nghề, dùng trên thực tế.</li>
+              <li><strong>Video AI:</strong> Quy trình tạo video dạy học, bán hàng, truyền thông bằng AI.</li>
+              <li><strong>Automation:</strong> Xây workflow tự động cho viết nội dung, chăm sóc KH, báo cáo.</li>
+            </ul>
+            <div class="tag-row">
+              <span class="tag">Đào tạo &amp; cố vấn 1-1</span>
+              <span class="tag">AI cho người “bình dân”</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ECOSYSTEM -->
+      <section id="ecosystem" class="section-card">
+        <h3>Hệ sinh thái SANGAI Academy</h3>
+        <h4>SANGAI – Trí Tuệ AI Việt Nam</h4>
+        <p style="font-size:0.9rem; color:var(--muted); margin-bottom:0.8rem;">
+          SANGAI Academy được xây dựng như một hệ sinh thái, nơi người Việt vào là
+          <strong>thông minh hơn – mạnh hơn – sáng hơn</strong> nhờ AI.
         </p>
-        <div class="hero-actions">
-          <a href="#contact" class="btn btn-primary">Kết nối &amp; hợp tác</a>
-          <a href="#ecosystem" class="btn btn-ghost">Khám phá hệ sinh thái SANGAI</a>
-        </div>
-        <div class="hero-meta">
-          <span><strong>26+ năm</strong> marketing &amp; thương hiệu thực chiến</span>
-          <span><strong>AI cho mọi người</strong>: SME, giáo viên, công chức, nông dân</span>
-          <span><strong>Ứng dụng chính</strong>: Custom GPT · Video AI · Automation</span>
-        </div>
-      </div>
-      <div class="hero-aside">
-        <div class="avatar-wrap">
-          <img src="avatar-tran-thanh-sang.jpg" alt="Trần Thanh Sang" class="avatar-img">
-        </div>
-        <div class="hero-role">Người sáng lập · SANGAI Academy</div>
-        <div class="hero-pills">
-          <span class="pill">Marketing thực chiến</span>
-          <span class="pill">AI cho cộng đồng</span>
-          <span class="pill">Custom GPT &amp; Video AI</span>
-        </div>
-      </div>
-    </section>
 
-    <section id="skills">
-      <h2>Năng lực cốt lõi</h2>
-      <div class="grid-2">
-        <div>
-          <h3>Marketing &amp; Thương hiệu</h3>
+        <div class="two-cols">
+          <div>
+            <h4>Custom GPT Lab</h4>
+            <p style="font-size:0.9rem; color:var(--muted);">
+              Phòng thí nghiệm GPT cá nhân hóa: thiết kế, huấn luyện và triển khai trợ lý AI cho từng ngành.
+            </p>
+            <ul>
+              <li>GPT cho marketing &amp; bán hàng.</li>
+              <li>GPT cho soạn giáo án, đề thi, tài liệu học.</li>
+              <li>GPT cho thủ tục hành chính &amp; công việc công sở.</li>
+            </ul>
+          </div>
+
+          <div>
+            <h4>Video AI &amp; Automation Hub</h4>
+            <p style="font-size:0.9rem; color:var(--muted);">
+              Quy trình khép kín từ ý tưởng → kịch bản → video → phân phối, kết hợp AI và tự động hóa.
+            </p>
+            <ul>
+              <li>Video ngắn cho TikTok, Reels, YouTube Shorts.</li>
+              <li>Video đào tạo nội bộ, hướng dẫn nghiệp vụ.</li>
+              <li>Automation: đăng bài, gửi email, nhắn tin, báo cáo tự động.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- SPEAKING & TESTIMONIALS -->
+      <section id="speaking" class="section-card">
+        <h3>Diễn giả &amp; Truyền thông</h3>
+        <div class="columns">
+          <div>
+            <h4>Chia sẻ AI &amp; Thương hiệu trong thời chuyển đổi số</h4>
+            <p style="font-size:0.9rem; color:var(--muted);">
+              Nhờ chuyên môn và cách nói chuyện truyền cảm hứng, ông Sang được nhiều cơ quan, đơn vị mời
+              làm diễn giả, chuyên gia chia sẻ tại các chương trình đào tạo, hội thảo và tọa đàm.
+            </p>
+            <p style="font-size:0.9rem; color:var(--muted);">
+              Đơn cử: Ngân hàng, Điện lực, địa phương và nhiều doanh nghiệp, cá nhân trong và ngoài tỉnh đã mời ông
+              tham gia chia sẻ kiến thức <strong>AI ChatGPT thời chuyển đổi số &amp; xây dựng thương hiệu</strong>.
+            </p>
+            <div class="quote-card">
+              “AI không phải để dọa nhau, mà để mỗi người Việt có một ‘trợ lý trí tuệ’ bên cạnh – biết hỏi đúng,
+              bạn sẽ đi rất xa.”
+              <span>— Trần Thanh Sang, chia sẻ trong một buổi đào tạo về AI ChatGPT</span>
+            </div>
+          </div>
+
+          <div>
+            <h4>Tiếng nói từ học viên &amp; đối tác</h4>
+            <div class="card-light">
+              <h4>Học viên &amp; người dùng SANGAI</h4>
+              <p style="font-size:0.9rem;">
+                “Khóa học AI tại SANGAI cực kỳ dễ hiểu – áp dụng được ngay. Tôi từ dân tay ngang nay đã dùng GPT để
+                viết content và lên kế hoạch bán hàng cho cửa hàng nhỏ của mình.”
+              </p>
+              <p style="font-size:0.8rem; color:var(--muted); margin-top:0.4rem;">Học viên 2024</p>
+            </div>
+
+            <div class="card-light" style="margin-top:0.75rem;">
+              <h4>Doanh nghiệp &amp; đơn vị hợp tác</h4>
+              <p style="font-size:0.9rem;">
+                “Anh Sang không chỉ nói về AI, anh ấy giúp đội ngũ của chúng tôi <strong>dùng được AI</strong> vào việc
+                mỗi ngày: từ viết nội dung, chăm sóc khách hàng đến báo cáo. Tụi tôi tiết kiệm được rất nhiều thời gian.”
+              </p>
+              <p style="font-size:0.8rem; color:var(--muted); margin-top:0.4rem;">
+                Chủ doanh nghiệp SME (ẩn danh theo yêu cầu)
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- GALLERY: ACTIVITIES -->
+      <section id="gallery-activities" class="section-card gallery-section">
+        <h3>Hình ảnh hoạt động SANGAI</h3>
+        <p>
+          Khu vực này dùng để trưng bày hình ảnh đào tạo, coaching doanh nghiệp, workshop, cộng đồng…
+          Bạn chỉ cần upload ảnh thật vào repo và đổi tên file <strong>training-01.jpg, training-02.jpg…</strong>
+          cho đúng với hình của mình.
+        </p>
+
+        <div class="masonry">
+          <!-- Thay các ảnh demo này bằng ảnh thật của bạn -->
+          <div class="masonry-item">
+            <img src="training-01.jpg" alt="Đào tạo AI cho doanh nghiệp" />
+            <div class="masonry-caption">Đào tạo AI cho doanh nghiệp SME</div>
+          </div>
+          <div class="masonry-item">
+            <img src="training-02.jpg" alt="Workshop AI cho giáo viên" />
+            <div class="masonry-caption">Workshop AI cho giáo viên &amp; nhà trường</div>
+          </div>
+          <div class="masonry-item">
+            <img src="training-03.jpg" alt="Coaching 1-1" />
+            <div class="masonry-caption">Coaching 1-1 về Custom GPT &amp; Video AI</div>
+          </div>
+          <div class="masonry-item">
+            <img src="training-04.jpg" alt="Chia sẻ cộng đồng" />
+            <div class="masonry-caption">Chia sẻ AI cho cộng đồng &amp; địa phương</div>
+          </div>
+          <div class="masonry-item">
+            <img src="training-05.jpg" alt="Chương trình truyền cảm hứng" />
+            <div class="masonry-caption">Hoạt động truyền cảm hứng AI cho người Việt</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- GALLERY: PRODUCTS -->
+      <section id="gallery-products" class="section-card gallery-section">
+        <h3>Sản phẩm &amp; Ấn phẩm SANGAI</h3>
+        <p>
+          Khu vực này dành cho bìa sách, khóa học, landing page, tài liệu chuyên sâu… của hệ sinh thái SANGAI.
+          Upload ảnh thực tế và thay thế các file <strong>product-01.jpg, product-02.jpg…</strong>.
+        </p>
+
+        <div class="masonry">
+          <!-- Thay bằng ảnh sản phẩm thật -->
+          <div class="masonry-item">
+            <img src="product-01.jpg" alt="Custom GPT SANGAI" />
+            <div class="masonry-caption">Custom GPT SANGAI – Trợ lý AI cho từng ngành</div>
+          </div>
+          <div class="masonry-item">
+            <img src="product-02.jpg" alt="Khóa học AI thực chiến" />
+            <div class="masonry-caption">Khóa học AI thực chiến cho doanh nhân &amp; công chức</div>
+          </div>
+          <div class="masonry-item">
+            <img src="product-03.jpg" alt="Ấn phẩm SANGAI Academy" />
+            <div class="masonry-caption">Ấn phẩm &amp; tài liệu chuyên sâu SANGAI Academy</div>
+          </div>
+          <div class="masonry-item">
+            <img src="product-04.jpg" alt="Video AI Toolkit" />
+            <div class="masonry-caption">Bộ công cụ Video AI cho marketing &amp; giáo dục</div>
+          </div>
+          <div class="masonry-item">
+            <img src="product-05.jpg" alt="Automation Workflow" />
+            <div class="masonry-caption">Workflow Automation – Email, báo cáo, chăm sóc khách hàng</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="section-card">
+        <h3>Kết nối &amp; Hợp tác</h3>
+        <div class="contact-row">
           <p>
-            Hơn 26 năm triển khai marketing thực chiến, xây dựng thương hiệu và tư vấn tăng trưởng cho nhiều doanh nghiệp
-            vừa và nhỏ. Kết hợp tư duy chiến lược dài hạn với những chiến thuật “xuống tay là có kết quả”.
+            Nếu bạn là doanh nhân nhỏ, giáo viên, công chức hay người đang tìm cách ứng dụng AI vào công việc
+            mỗi ngày, tôi rất sẵn lòng đồng hành. Chúng ta có thể bắt đầu từ những bước nhỏ, bình dân – nhưng
+            tư duy luôn ở chuẩn hệ thống.
           </p>
-          <ul>
-            <li><strong>Chiến lược thương hiệu:</strong> Định vị, thông điệp, kiến trúc thương hiệu.</li>
-            <li><strong>Marketing SME:</strong> Tối ưu ngân sách nhỏ, tập trung hiệu quả và đo lường.</li>
-            <li><strong>Sales &amp; chăm sóc khách hàng:</strong> Hệ thống bán hàng dựa trên dữ liệu.</li>
-          </ul>
+          <div class="contact-actions">
+            <a class="btn-outline" href="mailto:info@sangai.academy">Liên hệ: info@sangai.academy</a>
+            <a class="btn-outline" href="#" target="_blank" rel="noopener">Zalo / Facebook: SANGAI Academy</a>
+            <a class="btn-outline" href="portfolio-sangai.pdf" download>Tải hồ sơ PDF</a>
+          </div>
         </div>
-        <div>
-          <h3>AI, Custom GPT &amp; Automation</h3>
-          <p>
-            Ứng dụng AI như một “trợ lý trí tuệ” cho người Việt: không chỉ trả lời, mà phản chiếu tư duy, gợi ý quyết định,
-            giúp làm việc sâu hơn – nhanh hơn – thông minh hơn.
-          </p>
-          <ul>
-            <li><strong>Custom GPT:</strong> Thiết kế GPT riêng cho từng ngành/nghề, dùng trên thực tế.</li>
-            <li><strong>Video AI:</strong> Quy trình tạo video dạy học, bán hàng, truyền thông bằng AI.</li>
-            <li><strong>Automation:</strong> Xây workflow tự động cho viết nội dung, chăm sóc KH, báo cáo.</li>
-          </ul>
-        </div>
-      </div>
-      <div class="pill-row">
-        <span class="pill-soft">Tư duy hệ thống</span>
-        <span class="pill-soft">Fishbone &amp; Iceberg Thinking</span>
-        <span class="pill-soft">AI cho người “bình dân”</span>
-        <span class="pill-soft">Đào tạo &amp; cố vấn 1-1</span>
-      </div>
-    </section>
 
-    <section id="ecosystem">
-      <h2>Hệ sinh thái SANGAI Academy</h2>
-      <h3>SANGAI – Trí Tuệ AI Việt Nam</h3>
-      <p>
-        SANGAI Academy được xây dựng như một hệ sinh thái, nơi người Việt vào là <strong>thông minh hơn – mạnh hơn – sáng hơn</strong>
-        nhờ AI. Mỗi mảnh ghép đều hướng đến mục tiêu: AI cho trí tuệ · AI cho cộng đồng · AI cho Việt Nam · AI cho thế giới.
-      </p>
-      <div class="grid-2">
-        <div>
-          <h4>Custom GPT Lab</h4>
-          <p>
-            Phòng thí nghiệm GPT cá nhân hóa: thiết kế, huấn luyện và triển khai trợ lý AI cho từng ngành
-            (doanh nhân, giáo viên, công chức, nông dân...). Mỗi GPT là một “trợ lý trí tuệ” có phong cách Việt.
-          </p>
-          <ul>
-            <li>GPT cho marketing &amp; bán hàng.</li>
-            <li>GPT cho soạn giáo án, đề thi, tài liệu học.</li>
-            <li>GPT cho thủ tục hành chính &amp; công việc công sở.</li>
-          </ul>
-        </div>
-        <div>
-          <h4>Video AI &amp; Automation Hub</h4>
-          <p>
-            Quy trình khép kín từ ý tưởng → kịch bản → video → phân phối, kết hợp AI và tự động hóa.
-            Giúp người dùng không rành công nghệ vẫn có thể sở hữu “cỗ máy nội dung” của riêng mình.
-          </p>
-          <ul>
-            <li>Video ngắn cho TikTok, Reels, YouTube Shorts.</li>
-            <li>Video đào tạo nội bộ, hướng dẫn nghiệp vụ.</li>
-            <li>Automation: đăng bài, gửi email, nhắn tin, báo cáo tự động.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+        <p class="hotline" style="margin-top:0.9rem;">
+          Hotline: <a href="tel:0913091394">0913.0913.94 (Mr. Sang)</a>
+        </p>
+      </section>
+    </main>
 
-    <section id="speaking">
-      <h2>Diễn giả &amp; Truyền thông</h2>
-      <h3>Chia sẻ AI &amp; Thương hiệu trong thời chuyển đổi số</h3>
-      <p>
-        Nhờ chuyên môn và cách nói chuyện truyền cảm hứng, ông Sang được nhiều cơ quan, đơn vị mời làm diễn giả,
-        chuyên gia chia sẻ tại các chương trình đào tạo, hội thảo và tọa đàm.
-      </p>
-      <p>
-        Đơn cử: <strong>Ngân hàng Vikky Bank, Điện lực thành phố Cà Mau, Phường Vĩnh Trạch thành phố Bạc Liêu</strong> và một số doanh nghiệp,
-        cá nhân trong và ngoài tỉnh đã mời ông tham gia chia sẻ kiến thức <strong>AI ChatGPT thời chuyển đổi số</strong> và
-        <strong>xây dựng thương hiệu</strong>, nơi ông chia sẻ góc nhìn thực tiễn về giá trị thương hiệu thời hội nhập.
-      </p>
-      <blockquote>
-        “AI không phải để dọa nhau, mà để mỗi người Việt có một ‘trợ lý trí tuệ’ bên cạnh – biết hỏi đúng, bạn sẽ đi rất xa.”
-        <footer>— Trần Thanh Sang, chia sẻ trong một buổi đào tạo về AI ChatGPT</footer>
-      </blockquote>
-    </section>
-
-    <section>
-      <h2>Tiếng nói từ học viên &amp; đối tác</h2>
-      <div class="grid-2">
-        <div>
-          <h3>Học viên &amp; người dùng SANGAI</h3>
-          <blockquote>
-            “Khóa học AI tại SANGAI cực kỳ dễ hiểu – áp dụng được ngay. Tôi từ dân tay ngang nay đã dùng GPT để viết
-            content và lên kế hoạch bán hàng cho cửa hàng nhỏ của mình.”
-            <footer>Học viên 2024</footer>
-          </blockquote>
-        </div>
-        <div>
-          <h3>Doanh nghiệp &amp; đơn vị hợp tác</h3>
-          <blockquote>
-            “Anh Sang không chỉ nói về AI, anh ấy giúp đội ngũ của chúng tôi <strong>dùng được AI</strong> vào việc mỗi ngày:
-            từ viết nội dung, chăm sóc khách hàng đến báo cáo. Tụi tôi tiết kiệm được rất nhiều thời gian.”
-            <footer>Chủ doanh nghiệp SME (ẩn danh theo yêu cầu)</footer>
-          </blockquote>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="cta-final">
-      <h2>Kết nối &amp; Hợp tác</h2>
-      <p>
-        Nếu bạn là doanh nhân nhỏ, giáo viên, công chức hay người đang tìm cách ứng dụng AI vào công việc mỗi ngày,
-        tôi rất sẵn lòng đồng hành. Chúng ta có thể bắt đầu từ những bước nhỏ, bình dân – nhưng tư duy luôn ở chuẩn hệ thống.
-      </p>
-      <div class="cta-buttons">
-        <a href="mailto:info@sangai.academy" class="btn btn-primary">Liên hệ: info@sangai.academy</a>
-        <a href="#" class="btn btn-ghost">Zalo / Facebook: SANGAI Academy</a>
-        <a href="portfolio_sangai_v2.pdf" class="btn btn-ghost">Tải hồ sơ PDF</a>
-      </div>
-      <p class="small">
-        SANGAI Academy – Trí Tuệ AI Việt Nam · AI cho trí tuệ · AI cho cộng đồng · AI cho Việt Nam · AI cho thế giới.
-      </p>
-    </section>
+    <footer>
+      SANGAI Academy – Trí Tuệ AI Việt Nam · AI cho trí tuệ · AI cho cộng đồng · AI cho Việt Nam · AI cho thế giới.
+    </footer>
   </div>
 </body>
 </html>
